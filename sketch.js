@@ -5,7 +5,8 @@ function preload() {
 function setup() {
   let width = 400;
   let height = 400;
-  createCanvas(width, height);
+  can = createCanvas(width, height);
+  can.parent("#p5");
 }
 
 function draw() {
