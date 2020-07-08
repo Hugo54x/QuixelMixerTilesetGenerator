@@ -14,9 +14,16 @@ function setup() {
 }
 
 function draw() {
+  if (mouseX <= this.width && mouseY <= this.height) {
+      ui.onHover(mouseX, mouseY);
+  }
   frameRate(1);
   background(255);
   ui.draw();
+}
+
+function mousePressed() {
+  ui.onClicked(mouseX, mouseY);
 }
 
 function windowResized() {
