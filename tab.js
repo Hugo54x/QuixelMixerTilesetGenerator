@@ -76,6 +76,11 @@ class Tab {
     this.drawText();
   }
 
+  update(width, height) {
+    this.width = width/numTabs;
+    this.height = height/10;
+  }
+
   onClicked() {
     this.toggleState();
   }
