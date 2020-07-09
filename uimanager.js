@@ -1,6 +1,7 @@
 let numTabs = 2;
 let tabNew;
 let tabUpdate;
+let content;
 
 let colFont = "#000000";
 let colLink = "#303030";
@@ -23,21 +24,25 @@ class UIManager {
     tabUpdate = new Tab("Update",1,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFont, "Courier New", rem, 1, 3, "white");
     tabUpdate.setActiveState(false);
     tabUpdate.setup();
+    content = new Content(0, this.height/10, this.width, this.height-2*(this.height/10), colSecondary);
+    content.setup();
   }
 
   draw() {
     tabNew.draw();
+    push();
     tabUpdate.translateTab();
     tabUpdate.draw();
+    pop();
+    content.draw();
   }
 
   update(width, height) {
     this.width = width;
     this.height = height;
-    tabNew.width = width/numTabs;
-    tabNew.height = height/10;
-    tabUpdate.width = width/numTabs;
-    tabUpdate.height = height/10;
+    tabNew.update(width, height);
+    tabUpdate.update(width, height);
+    content.update(height/10, width, height-2*(height/10));
   }
 
   onClicked(x,y) {
