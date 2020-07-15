@@ -4,6 +4,7 @@ let tabUpdate;
 let content;
 
 let colFont = "#000000";
+let colFontNA = "#FFFFFF";
 let colLink = "#303030";
 let colPrimary = "#454545";
 let colSecondary = "#909090";
@@ -21,7 +22,7 @@ class UIManager {
     tabNew = new Tab("New",0,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFont, "Courier New", rem, 1, 3, "white");
     tabNew.setActiveState(true);
     tabNew.setup();
-    tabUpdate = new Tab("Update",1,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFont, "Courier New", rem, 1, 3, "white");
+    tabUpdate = new Tab("Update",1,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFontNA, "Courier New", rem, 1, 3, "white");
     tabUpdate.setActiveState(false);
     tabUpdate.setup();
     content = new Content(0, this.height/10, this.width, this.height-2*(this.height/10), colSecondary);

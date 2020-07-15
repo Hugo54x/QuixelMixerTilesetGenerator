@@ -123,10 +123,12 @@ class Tab {
     if (this.activeState == true) {
       this.setActiveState(false);
       this.tabColor = colSecondary;
+      this.fontColor = colFontNA;
     }
     else {
       this.setActiveState(true);
       this.tabColor = colPrimary;
+      this.fontColor = colFont;
     }
   }
 
