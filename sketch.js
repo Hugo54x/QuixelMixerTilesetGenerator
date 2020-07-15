@@ -1,5 +1,6 @@
 let rem = 16;
 let ui;
+let scaleFactor;
 
 function preload() {
 
@@ -40,7 +41,10 @@ function getWindowSize() {
   if (height >600){
     height = 600
     width = (height/aspectRatio[1])*aspectRatio[0];
+    scaleFactor = 2;
   }
-  else {}
+  else {
+    scaleFactor = 1;
+  }
   return [width,height]
 }
