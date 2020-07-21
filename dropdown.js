@@ -1,11 +1,13 @@
 class Dropdown {
-  constructor(posX, posY, width, height, bgColor, fontType, fontColor, triFill, offsetX, offsetY) {
+  constructor(posX, posY, width, height, bgColor, fontType, fontSize, textStyle, fontColor, triFill, offsetX, offsetY) {
     this.posX = posX;
     this.posY = posY;
     this.width = width;
     this.height = height;
     this.bgColor = bgColor;
     this.fontType = fontType;
+    this.fontSize = fontSize;
+    this.textStyle = textStyle;
     this.fontColor = fontColor;
     this.elements = [];
     this.activeID = 0;
@@ -71,11 +73,11 @@ class Dropdown {
       let id;
 
       for (let i = 0; i <= this.elements.length; i++) {
-        if (x >= this.posX+this.offsetX && x <= this.posX+this.width+this.offsetX && y >= this.posY+this.offsetY+this.height*i && y <= this.posY+this.height+this.offsetY+this.height*i){
+        if (x >= this.posX+this.offsetX && x <= this.posX+this.width*scaleFactor+this.offsetX && y >= this.posY+this.offsetY+this.height*i*scaleFactor && y <= this.posY+this.height*scaleFactor+this.offsetY+this.height*i*scaleFactor){
           id = i-1;
         }
       }
-      
+
       if (id == -1){
         id = this.activeID;
         this.toggleState();
@@ -87,7 +89,7 @@ class Dropdown {
       this.toggleState();
     }
 
-    if (x >= this.posX+this.offsetX && x <= this.posX+this.width+this.offsetX && y >= this.posY+this.offsetY && y <= this.posY+this.height+this.offsetY){
+    if (x >= this.posX+this.offsetX && x <= this.posX+this.width*scaleFactor+this.offsetX && y >= this.posY+this.offsetY && y <= this.posY+this.height*scaleFactor+this.offsetY){
       this.toggleState();
     }
   }
@@ -123,9 +125,10 @@ class Dropdown {
   }
 
   drawText(t) {
-    textFont(this.fontType);
-    textSize(rem*scaleFactor);
     noStroke();
+    textStyle(this.textStyle);
+    textFont(this.fontType);
+    textSize(this.fontSize);
     fill(this.fontColor);
     textAlign(LEFT,CENTER);
     text(t, this.posX, this.posY+rem*scaleFactor/2+1);
