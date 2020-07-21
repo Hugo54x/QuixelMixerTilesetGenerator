@@ -1,5 +1,5 @@
 class Tab {
-  constructor(text, posX, posY, width, height, tabColor, bgColor, fontColor, fontType, fontSize, fontStroke, lineSize, lineCol) {
+  constructor(text, posX, posY, width, height, tabColor, bgColor, fontColor, fontType, fontSize, textStyle, lineSize, lineCol) {
     this.text = text;
     this.posX = posX;
     this.posY = posY;
@@ -10,7 +10,7 @@ class Tab {
     this.fontColor = fontColor;
     this.fontType = fontType;
     this.fontSize = fontSize;
-    this.fontStroke = fontStroke;
+    this.textStyle = textStyle;
     this.paddingTop = height/10;
     this.lineSize = lineSize/2;
     this.lineCol = lineCol;
@@ -58,8 +58,7 @@ class Tab {
 
   drawText() {
     textSize(this.height/2+this.fontSize/2);
-    stroke(this.fontColor);
-    strokeWeight(this.fontStroke);
+    textStyle(this.textStyle);
     fill(this.fontColor);
     textAlign(LEFT,CENTER);
     textFont(this.fontType);
