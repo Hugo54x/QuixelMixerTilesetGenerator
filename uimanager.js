@@ -47,7 +47,7 @@ class UIManager {
     tabNew.update(width, height);
     tabUpdate.update(width, height);
     content.update(0, height/10, width, height-2*(height/10));
-    footer.update(0,height-2*(height/10), width, height);
+    footer.update(0,height-(height/10), width, height);
   }
 
   onClicked(x,y) {
