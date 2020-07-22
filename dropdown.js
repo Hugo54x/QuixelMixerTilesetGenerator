@@ -72,6 +72,8 @@ class Dropdown {
   onClicked(x,y) {
     if (this.getActiveState() == true){
       let id;
+      
+      id = this.activeID;
 
       for (let i = 0; i <= this.elements.length; i++) {
         if (x >= this.posX+this.offsetX && x <= this.posX+this.width*scaleFactor+this.offsetX && y >= this.posY+this.offsetY+this.height*i*scaleFactor && y <= this.posY+this.height*scaleFactor+this.offsetY+this.height*i*scaleFactor){
