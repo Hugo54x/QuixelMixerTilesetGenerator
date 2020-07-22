@@ -47,6 +47,7 @@ class Dropdown {
     this.posX = posX;
     this.posY = posY;
     this.offsetX = width*0.65;
+    this.fontSize = rem*scaleFactor;
   }
 
   onHover(x,y) {
