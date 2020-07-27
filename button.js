@@ -30,29 +30,29 @@ class Button {
     fill(this.btnCol);
     stroke("black");
     strokeWeight(this.strokeWeight);
-    rect(this.posX, this.posY, this.width, this.height);
+    rect(this.posX+this.offsetX*scaleFactor, this.posY+this.offsetY*scaleFactor, this.width*scaleFactor, this.height*scaleFactor);
   }
 
   drawText() {
-    textSize(this.fontSize);
+    textSize(this.fontSize*scaleFactor);
     textStyle(this.textStyle);
     noStroke();
     fill(this.fontColor);
     textAlign(CENTER, CENTER);
     textFont(this.fontType);
-    text(this.text, this.posX+this.width/2, this.posY+this.height/2);
+    text(this.text, this.posX+(this.width/2)*scaleFactor+this.offsetX*scaleFactor, this.posY+(this.height/2)*scaleFactor+this.offsetY*scaleFactor);
   }
 
   update(posX, posY, width, height) {
     this.posX = posX;
     this.posY = posY;
-    this.width = 4*rem*scaleFactor;
-    this.height = rem*scaleFactor;
-    this.fontSize = rem*0.8*scaleFactor;
+    this.width = 4*rem;
+    this.height = rem;
+    this.fontSize = rem*0.8;
   }
 
   onHover(x,y) {
-    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width*scaleFactor && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height*scaleFactor){
+    if (x >= this.posX+this.offsetX*scaleFactor && x <= this.posX+this.offsetX*scaleFactor+this.width*scaleFactor && y >= this.posY+this.offsetY*scaleFactor && y <= this.posY+this.offsetY*scaleFactor+this.height*scaleFactor){
       this.textStyle = BOLD;
       this.strokeWeight = 2;
     }
@@ -63,11 +63,11 @@ class Button {
   }
 
   onClicked(x,y) {
-    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width*scaleFactor && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height*scaleFactor){
+    if (x >= this.posX+this.offsetX*scaleFactor && x <= this.posX+this.offsetX*scaleFactor+this.width*scaleFactor && y >= this.posY+this.offsetY*scaleFactor && y <= this.posY+this.offsetY*scaleFactor+this.height*scaleFactor){
       this.processClick(this.callback);
     }
   }
-  
+
   processClick(callback){
     callback()
   }
