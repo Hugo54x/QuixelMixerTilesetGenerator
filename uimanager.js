@@ -20,10 +20,10 @@ class UIManager {
   }
 
   setup() {
-    tabNew = new Tab("New",0,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFont, "Courier New", rem, BOLD, 3, "white");
+    tabNew = new Tab("New",0,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFont, "Courier New", rem, BOLD, 3, colFont);
     tabNew.setActiveState(true);
     tabNew.setup();
-    tabUpdate = new Tab("Update",1,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFontNA, "Courier New", rem, BOLD, 3, "white");
+    tabUpdate = new Tab("Update",1,0, this.width/numTabs, this.height/10, colSecondary, colPrimary, colFontNA, "Courier New", rem, BOLD, 3, colFontNA);
     tabUpdate.setActiveState(false);
     tabUpdate.setup();
     content = new Content(0, this.height/10, this.width, this.height-2*(this.height/10), colSecondary);
