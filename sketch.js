@@ -1,6 +1,7 @@
 let rem = 16;
 let ui;
 let scaleFactor;
+let filemanager;
 
 function preload() {
 
@@ -10,8 +11,9 @@ function setup() {
   let dim = getWindowSize()
   can = createCanvas(dim[0], dim[1]);
   can.parent("#p5");
+  filemanager = new Filemanager();
   ui = new UIManager(dim[0], dim[1]);
-  ui.setup();
+  ui.setup();  
 }
 
 function draw() {
