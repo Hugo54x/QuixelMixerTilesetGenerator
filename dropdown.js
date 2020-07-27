@@ -47,7 +47,7 @@ class Dropdown {
     this.posX = posX;
     this.posY = posY;
     this.offsetX = width*0.65;
-    this.fontSize = rem*scaleFactor;
+    this.fontSize = rem;
   }
 
   onHover(x,y) {
@@ -72,7 +72,7 @@ class Dropdown {
   onClicked(x,y) {
     if (this.getActiveState() == true){
       let id;
-      
+
       id = this.activeID;
 
       for (let i = 0; i <= this.elements.length; i++) {
@@ -131,7 +131,7 @@ class Dropdown {
     noStroke();
     textStyle(this.textStyle);
     textFont(this.fontType);
-    textSize(this.fontSize);
+    textSize(this.fontSize*scaleFactor);
     fill(this.fontColor);
     textAlign(LEFT,CENTER);
     text(t, this.posX, this.posY+rem*scaleFactor/2+1);
