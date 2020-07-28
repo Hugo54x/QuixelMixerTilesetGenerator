@@ -29,6 +29,7 @@ class UIManager {
     content = new Content(0, this.height/10, this.width, this.height-2*(this.height/10), colSecondary);
     content.setup();
     footer = new Footer(0, this.height-(this.height/10), this.width, this.height, colSecondary);
+    footer.setup();
   }
 
   draw() {
