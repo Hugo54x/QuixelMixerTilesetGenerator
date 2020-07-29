@@ -64,6 +64,9 @@ class UIManager {
       if (x >= 0 && y >= this.height/10 && y <= this.height-2*(this.height/10)){
         content.onClicked(x,y);
       }
+      if (x >= 0 && y >= this.height-2*(this.height/10) && y <= this.height){
+        footer.onClicked(x,y);
+      }
     }
   }
 
@@ -71,5 +74,11 @@ class UIManager {
     tabNew.onHover(x,y);
     tabUpdate.onHover(x,y);
     content.onHover(x,y);
+    footer.onHover(x,y);
+  }
+
+  keyPressed(){
+    footer.keyPressed();
+    return false;
   }
 }
