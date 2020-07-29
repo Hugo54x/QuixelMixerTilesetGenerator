@@ -2,6 +2,7 @@ let rem = 16;
 let ui;
 let scaleFactor;
 let filemanager;
+let filename;
 
 function preload() {
 
@@ -13,7 +14,7 @@ function setup() {
   can.parent("#p5");
   filemanager = new Filemanager();
   ui = new UIManager(dim[0], dim[1]);
-  ui.setup();  
+  ui.setup();
 }
 
 function draw() {
@@ -27,6 +28,11 @@ function draw() {
 
 function mousePressed() {
   ui.onClicked(mouseX, mouseY);
+}
+
+function keyPressed() {
+  ui.keyPressed();
+  return false;
 }
 
 function windowResized() {
