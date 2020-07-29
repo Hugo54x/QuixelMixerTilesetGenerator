@@ -43,11 +43,11 @@ class Button {
     text(this.text, this.posX+(this.width/2)*scaleFactor+this.offsetX*scaleFactor, this.posY+(this.height/2)*scaleFactor+this.offsetY*scaleFactor);
   }
 
-  update(posX, posY, width, height) {
+  update(posX, posY, offsetX, offsetY) {
     this.posX = posX;
     this.posY = posY;
-    this.width = 4*rem;
-    this.height = rem;
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
     this.fontSize = rem*0.8;
   }
 
