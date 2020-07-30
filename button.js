@@ -30,29 +30,31 @@ class Button {
     fill(this.btnCol);
     stroke("black");
     strokeWeight(this.strokeWeight);
-    rect(this.posX+this.offsetX*scaleFactor, this.posY+this.offsetY*scaleFactor, this.width*scaleFactor, this.height*scaleFactor);
+    rect(this.posX+this.offsetX, this.posY+this.offsetY, this.width, this.height);
   }
 
   drawText() {
-    textSize(this.fontSize*scaleFactor);
+    textSize(this.fontSize);
     textStyle(this.textStyle);
     noStroke();
     fill(this.fontColor);
     textAlign(CENTER, CENTER);
     textFont(this.fontType);
-    text(this.text, this.posX+(this.width/2)*scaleFactor+this.offsetX*scaleFactor, this.posY+(this.height/2)*scaleFactor+this.offsetY*scaleFactor);
+    text(this.text, this.posX+(this.width/2)+this.offsetX, this.posY+(this.height/2)+this.offsetY);
   }
 
-  update(posX, posY, offsetX, offsetY) {
+  update(posX, posY, width, height, offsetX, offsetY, fontSize) {
     this.posX = posX;
     this.posY = posY;
+    this.width = width;
+    this.height = height;
     this.offsetX = offsetX;
     this.offsetY = offsetY;
-    this.fontSize = rem*0.8;
+    this.fontSize = fontSize;
   }
 
   onHover(x,y) {
-    if (x >= this.posX+this.offsetX*scaleFactor && x <= this.posX+this.offsetX*scaleFactor+this.width*scaleFactor && y >= this.posY+this.offsetY*scaleFactor && y <= this.posY+this.offsetY*scaleFactor+this.height*scaleFactor){
+    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height){
       this.textStyle = BOLD;
       this.strokeWeight = 2;
     }
@@ -63,7 +65,7 @@ class Button {
   }
 
   onClicked(x,y) {
-    if (x >= this.posX+this.offsetX*scaleFactor && x <= this.posX+this.offsetX*scaleFactor+this.width*scaleFactor && y >= this.posY+this.offsetY*scaleFactor && y <= this.posY+this.offsetY*scaleFactor+this.height*scaleFactor){
+    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height){
       this.processClick(this.callback);
     }
   }
