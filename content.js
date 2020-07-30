@@ -64,7 +64,8 @@ class Content {
 
   drawBackground() {
     fill(this.col);
-    noStroke();
+    strokeWeight(1);
+    stroke(this.col)
     rect(this.posX, this.posY, this.width, this.height);
   }
 }
