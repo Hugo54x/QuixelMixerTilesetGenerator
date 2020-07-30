@@ -28,4 +28,8 @@ class Text {
     this.offsetY = offsetY;
     this.fontSize = fontSize;
   }
+
+  setText(str) {
+    this.text = str;
+  }
 }
