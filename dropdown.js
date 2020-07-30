@@ -178,4 +178,8 @@ class Dropdown {
   getZIndex() {
     return this.zIndex;
   }
+
+  getActiveElement() {
+    return this.elements[this.activeID]
+  }
 }
