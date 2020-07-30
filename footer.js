@@ -41,7 +41,7 @@ class Footer {
     this.width = width;
     this.height = height;
     nameIn.update(posX, posY, (this.height/scaleFactor*0.1-rem)/2);
-    btnDown.update(posX, posY, this.width/scaleFactor-(10+rem*4), (this.height/scaleFactor*0.1-rem)/2);
+    btnDown.update(posX, posY, rem*4*scaleFactor, rem*scaleFactor, this.width-(10*scaleFactor+rem*4*scaleFactor), (this.height/scaleFactor*0.1-rem)/2*scaleFactor, rem*0.8*scaleFactor);
     tName.update(this.posX, this.posY, 10*scaleFactor, rem*scaleFactor/4*scaleFactor, rem*scaleFactor);
     tFT.update(this.posX, this.posY, 3*10*scaleFactor+14.5*rem*scaleFactor, rem*scaleFactor/4*scaleFactor, rem*scaleFactor);
   }
