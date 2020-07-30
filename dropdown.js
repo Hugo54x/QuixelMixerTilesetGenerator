@@ -16,6 +16,7 @@ class Dropdown {
     this.offsetY = offsetY;
     this.hoverState = false;
     this.activeState = false;
+    this.zIndex = 0;
   }
 
   setup() {
@@ -100,9 +101,11 @@ class Dropdown {
   toggleState() {
     if (this.activeState == false){
       this.activeState = true;
+      this.zIndex = 1;
     }
     else {
       this.activeState = false;
+      this.zIndex = 0;
     }
   }
 
@@ -170,5 +173,9 @@ class Dropdown {
 
   getActiveState() {
     return this.activeState;
+  }
+
+  getZIndex() {
+    return this.zIndex;
   }
 }
