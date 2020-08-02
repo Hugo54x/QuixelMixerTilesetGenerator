@@ -31,28 +31,31 @@ class Dropdown {
       this.drawDrops();
     }
     push();
-    translate(5,0);
+    translate(5,this.height*0.5);
     this.drawText(this.getElement(this.activeID));
     if (this.activeState == true){
       this.drawTexts();
     }
     pop();
     push();
-    translate(this.posX+50*scaleFactor,this.posY+5*scaleFactor);
+    translate(this.posX+this.width-this.height, this.posY+this.height*0.25);
     this.drawTraingle();
     pop();
     pop();
   }
 
-  update(posX, posY, width) {
+  update(posX, posY, offsetX, offsetY, width, height, font) {
     this.posX = posX;
     this.posY = posY;
-    this.offsetX = width*0.65;
-    this.fontSize = rem;
+    this.width = width;
+    this.height = height;
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
+    this.fontSize = font;
   }
 
   onHover(x,y) {
-    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width*scaleFactor && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height*scaleFactor){
+    if (x >= this.posX+this.offsetX && x <= this.posX+this.offsetX+this.width && y >= this.posY+this.offsetY && y <= this.posY+this.offsetY+this.height){
       this.hoverState = true;
       this.triFill = colFont;
     }
@@ -77,7 +80,7 @@ class Dropdown {
       id = this.activeID;
 
       for (let i = 0; i <= this.elements.length; i++) {
-        if (x >= this.posX+this.offsetX && x <= this.posX+this.width*scaleFactor+this.offsetX && y >= this.posY+this.offsetY+this.height*i*scaleFactor && y <= this.posY+this.height*scaleFactor+this.offsetY+this.height*i*scaleFactor){
+        if (x >= this.posX+this.offsetX && x <= this.posX+this.width+this.offsetX && y >= this.posY+this.offsetY+this.height*i && y <= this.posY+this.height+this.offsetY+this.height*i){
           id = i-1;
         }
       }
@@ -93,7 +96,7 @@ class Dropdown {
       this.toggleState();
     }
 
-    if (x >= this.posX+this.offsetX && x <= this.posX+this.width*scaleFactor+this.offsetX && y >= this.posY+this.offsetY && y <= this.posY+this.height*scaleFactor+this.offsetY){
+    if (x >= this.posX+this.offsetX && x <= this.posX+this.width+this.offsetX && y >= this.posY+this.offsetY && y <= this.posY+this.height+this.offsetY){
       this.toggleState();
     }
   }
@@ -118,13 +121,13 @@ class Dropdown {
       stroke(colFont)
     }
     strokeWeight(1);
-    rect(this.posX, this.posY, this.width*scaleFactor, this.height*scaleFactor);
+    rect(this.posX, this.posY, this.width, this.height);
   }
 
   drawDrops() {
     for (let i = 1; i <= this.elements.length; i++) {
       push();
-      translate(0, this.height*scaleFactor*i);
+      translate(0, this.height*i);
       this.drawDrop(true);
       pop();
     }
@@ -134,16 +137,16 @@ class Dropdown {
     noStroke();
     textStyle(this.textStyle);
     textFont(this.fontType);
-    textSize(this.fontSize*scaleFactor);
+    textSize(this.fontSize);
     fill(this.fontColor);
     textAlign(LEFT,CENTER);
-    text(t, this.posX, this.posY+rem*scaleFactor/2+1);
+    text(t, this.posX, this.posY);
   }
 
   drawTexts() {
     for (let i = 1; i <= this.elements.length; i++) {
       push();
-      translate(0, this.height*scaleFactor*i);
+      translate(0, this.height*i);
       this.drawText(this.elements[i-1]);
       pop();
     }
@@ -151,8 +154,8 @@ class Dropdown {
 
   drawTraingle() {
     fill(this.triFill);
-    strokeWeight(1*scaleFactor);
-    triangle(0,0, 10*scaleFactor, 0, 5*scaleFactor,7*scaleFactor);
+    strokeWeight(1);
+    triangle(0, 0, this.height*0.7, 0, this.height*0.7*0.5, this.height*0.5);
   }
 
   setElements(element) {

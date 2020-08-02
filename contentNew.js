@@ -15,10 +15,10 @@ class ContentNew {
   }
 
   setup() {
-    drop1 = new Dropdown(this.posX, this.posY+rem*scaleFactor, 4*rem, rem, "white", "Courier New", rem, NORMAL, "black", colFontNA, this.width*0.65, 0);
+    drop1 = new Dropdown(this.posX, this.posY+rem*scaleFactor, 4*rem*scaleFactor, rem*scaleFactor, "white", "Courier New", rem*scaleFactor, NORMAL, "black", colFontNA, this.width-5*rem*scaleFactor, 0);
     drop1.setElements([256, 512, 1024, 2048, 4096]);
     drop1.setup();
-    drop2 = new Dropdown(this.posX, this.posY+3*rem*scaleFactor, 4*rem, rem, "white", "Courier New", rem, NORMAL, "black", colFontNA, this.width*0.65, 0);
+    drop2 = new Dropdown(this.posX, this.posY+3*rem*scaleFactor, 4*rem*scaleFactor, rem*scaleFactor, "white", "Courier New", rem*scaleFactor, NORMAL, "black", colFontNA, this.width-5*rem*scaleFactor, 0);
     drop2.setElements([2, 4, 8, 16, 32, 64, 128]);
     drop2.setup();
     tTextureSize = new Text(this.posX, this.posY, 0, rem*scaleFactor, "Texture Size:", "Courier New", rem*scaleFactor, BOLD, colFont);
@@ -52,8 +52,8 @@ class ContentNew {
     this.posX = posX;
     this.width = width;
     this.height = height;
-    drop1.update(this.posX, this.posY+rem*scaleFactor, this.width);
-    drop2.update(this.posX, this.posY+3*rem*scaleFactor, this.width);
+    drop1.update(this.posX, this.posY+rem*scaleFactor, this.width-5*rem*scaleFactor, 0, 4*rem*scaleFactor, rem*scaleFactor, rem*scaleFactor);
+    drop2.update(this.posX, this.posY+3*rem*scaleFactor, this.width-5*rem*scaleFactor, 0, 4*rem*scaleFactor, rem*scaleFactor, rem*scaleFactor);
     tTextureSize.update(this.posX, this.posY, 0, rem*scaleFactor, rem*scaleFactor);
     tTiles.update(this.posX, this.posY, 0, 3*rem*scaleFactor, rem*scaleFactor);
     tTileSize.update(this.posX, this.posY, 0, 5*rem*scaleFactor, rem*scaleFactor);
