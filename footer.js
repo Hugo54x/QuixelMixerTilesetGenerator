@@ -15,7 +15,7 @@ class Footer {
   setup() {
     nameIn = new InputField(this.posX, this.posY, 12*rem, rem, colFont, colFontNA, 2*10+3*rem, (this.height/scaleFactor*0.1-rem)/2, colFont, rem*0.8, "Courier New", NORMAL);
     nameIn.setup();
-    btnDown = new Button(this.posX, this.posY, rem*4, rem, "white", "red", "Download", NORMAL, "black", rem*0.8, "Courier New", this.width/scaleFactor-(10+rem*4), (this.height/scaleFactor*0.1-rem)/2, filemanager.download);
+    btnDown = new Button(this.posX, this.posY, rem*4*scaleFactor, rem*scaleFactor, "white", "red", "Download", NORMAL, "black", rem*0.8*scaleFactor, "Courier New", this.width-(10*scaleFactor+rem*4*scaleFactor), (this.height*0.1-rem*scaleFactor)/2, filemanager.download);
     btnDown.setup();
     tName = new Text(this.posX, this.posY, 10*scaleFactor, rem*scaleFactor/4*scaleFactor, "Name:", "Courier New", rem*scaleFactor, BOLD, colFont);
     tFT = new Text(this.posX, this.posY, 3*10*scaleFactor+14.5*rem*scaleFactor, rem*scaleFactor/4*scaleFactor, ".xml", "Courier New", rem*scaleFactor, BOLD, colFont);
