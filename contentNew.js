@@ -30,7 +30,12 @@ class ContentNew {
 
   draw() {
     let tilesize = drop1.getActiveElement()/drop2.getActiveElement();
-    tTileSize.setText(`Tile Size: ${tilesize}px`);
+    if (scaleFactor == 1){
+      tTileSize.setText(`Tile Size:     ${tilesize}px`);
+    }
+    else {
+      tTileSize.setText(`Tile Size:          ${tilesize}px`);
+    }
     tTextureSize.draw();
     tTiles.draw();
     tTileSize.draw();
