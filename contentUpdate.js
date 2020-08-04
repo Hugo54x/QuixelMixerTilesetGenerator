@@ -1,6 +1,7 @@
 let btnUpload;
 let ddVersion;
 let btnUpdate;
+let tFilename;
 
 class ContentUpdate {
   constructor(posX, posY, width, height){
@@ -18,12 +19,14 @@ class ContentUpdate {
     ddVersion.setup();
     btnUpdate = new Button(this.posX, this.posY, rem*4*scaleFactor, rem*scaleFactor, "white", "red", "Update", NORMAL, "black", rem*0.8*scaleFactor, "Courier New", this.width*0.5-rem*4*0.5*scaleFactor, 6*rem*scaleFactor, filemanager.update);
     btnUpdate.setup();
+    tFilename = new Text(this.posX, this.posY, 0, 2.5*rem*scaleFactor, "", "Courier New", rem*scaleFactor, BOLD, colFont);
   }
 
   draw() {
     btnUpload.draw();
     btnUpdate.draw();
     ddVersion.draw();
+    tFilename.draw();
   }
 
   update(posX, posY, width, height) {
@@ -34,6 +37,7 @@ class ContentUpdate {
     btnUpload.update(this.posX, this.posY, 4*rem*scaleFactor, rem*scaleFactor, this.width*0.5-rem*4*0.5*scaleFactor, rem*scaleFactor, rem*0.8*scaleFactor);
     ddVersion.update(this.posX, this.posY, this.width*0.5-6*rem*0.5*scaleFactor, 4*rem*scaleFactor, 6*rem*scaleFactor, rem*scaleFactor, rem*scaleFactor);
     btnUpdate.update(this.posX, this.posY, 4*rem*scaleFactor, rem*scaleFactor, this.width*0.5-rem*4*0.5*scaleFactor, 6*rem*scaleFactor, rem*0.8*scaleFactor);
+    tFilename.update(this.posX, this.posY, 0, 2.5*rem*scaleFactor, rem*scaleFactor);
   }
 
   onHover(x,y) {
