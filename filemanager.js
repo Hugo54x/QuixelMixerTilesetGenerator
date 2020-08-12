@@ -24,6 +24,7 @@ class Filemanager {
 
       reader.onloadend = end => {
         console.log(fileContent);
+        tFilename.setText(file.name);
       }
     }
     input.click();
