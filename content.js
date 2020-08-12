@@ -16,7 +16,7 @@ class Content {
     contentNew.setup();
     contentUpdate = new ContentUpdate(this.posX+this.width/2, this.posY, this.width/2, this.height);
     contentUpdate.setup();
-    tileset = new Tileset(this.posX, this.posY, this.height);
+    tileset = new Tileset(this.posX, this.posY, this.height, rem, 8);
     tileset.setup();
   }
 
