@@ -16,19 +16,19 @@ class Content {
     contentNew.setup();
     contentUpdate = new ContentUpdate(this.posX+this.width/2, this.posY, this.width/2, this.height);
     contentUpdate.setup();
-    tileset = new Tileset(this.posX, this.posY, this.height, rem, 8);
-    tileset.setup();
+    //tileset = new Tileset(this.posX, this.posY, this.height, rem, 8);
+    //tileset.setup();
   }
 
   draw() {
     this.drawBackground();
     if(tabNew.getActiveState() == true){
       contentNew.draw();
-      tileset.draw();
+      //tileset.draw();
     }
     if(tabUpdate.getActiveState() == true){
       contentUpdate.draw();
-      tileset.draw();
+      //tileset.draw();
     }
   }
 
@@ -37,7 +37,7 @@ class Content {
     this.posY = posY;
     this.width = width;
     this.height = height;
-    tileset.update(this.posX, this.posY, this.height);
+    //tileset.update(this.posX, this.posY, this.height);
     contentNew.update(this.posX+this.width/2, this.posY, this.width/2, this.height);
     contentUpdate.update(this.posX+this.width/2, this.posY, this.width/2, this.height);
   }
